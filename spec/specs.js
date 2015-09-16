@@ -48,12 +48,28 @@ describe("#board", function() {
     expect(testBoard.spaces[8].coordinates).to.eql([2,2]);
   });
 
+  it("will create the board object consisting of 9 spaces , mand return null for the player-typen of an un-occupied field", function() {
+    var testBoard = new Board();
+    testBoard.populate();
+    expect(testBoard.spaces[5].occupiedBy).to.eql(null);
+  });
+
   it("will create the board object consisting of 9 spaces , mark one field for player 'x' and return his player_type", function() {
     var testBoard = new Board();
     testBoard.populate();
     var testPlayer = new Player("Ronaldo", "x");
     testBoard.spaces[5].occupy(testPlayer.player_type);
     expect(testBoard.spaces[5].occupiedBy).to.eql("x");
+  });
+
+    it("will create the board object consisting of 9 spaces , mark one field for player 'x' and will not mark it again for player 'o'", function() {
+      var testBoard = new Board();
+      testBoard.populate();
+      var testPlayer = new Player("Ronaldo", "x");
+      testBoard.spaces[5].occupy(testPlayer.player_type);
+      var testPlayer2 = new Player("Ronalda", "o");
+      testBoard.spaces[5].occupy(testPlayer2.player_type);
+      expect(testBoard.spaces[5].occupiedBy).to.eql("x");
   });
 
 

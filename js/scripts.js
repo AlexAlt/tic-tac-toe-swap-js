@@ -16,7 +16,9 @@ function Space(coordinates) {
 }
 
 Space.prototype.occupy = function(markedType) {
-  this.occupiedBy = markedType;
+  if (this.occupiedBy === null){
+    this.occupiedBy = markedType;
+  } 
 }
 
 
