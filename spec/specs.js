@@ -109,6 +109,66 @@ describe("#game", function() {
     expect(testGame.turnCounter).to.equal(-1);
   });
 
+  it("will return a win for playerX if win by row", function() {
+    var testGame = new Game();
+    testGame.gameBoard.spaces[0].occupy(testGame.playerX.player_type);
+    testGame.gameBoard.spaces[1].occupy(testGame.playerX.player_type);
+    testGame.gameBoard.spaces[2].occupy(testGame.playerX.player_type);
+    expect(testGame.winCheck()).to.eql(true);
+  });
+
+  it("will not return a win for playerX if no row is marked for him", function() {
+    var testGame = new Game();
+    expect(testGame.winCheck()).to.eql(false);
+  });
+
+  it("will return a win for playerX if win by column", function() {
+    var testGame = new Game();
+    testGame.gameBoard.spaces[1].occupy(testGame.playerX.player_type);
+    testGame.gameBoard.spaces[4].occupy(testGame.playerX.player_type);
+    testGame.gameBoard.spaces[7].occupy(testGame.playerX.player_type);
+    expect(testGame.winCheck()).to.eql(true);
+  });
+
+  it("will return a win for playerO if win by column", function() {
+    var testGame = new Game();
+    testGame.gameBoard.spaces[1].occupy(testGame.playerO.player_type);
+    testGame.gameBoard.spaces[4].occupy(testGame.playerO.player_type);
+    testGame.gameBoard.spaces[7].occupy(testGame.playerO.player_type);
+    expect(testGame.winCheck()).to.eql(true);
+  });
+
+  it("will return a win for playerO if win by diagonal to lower right", function() {
+    var testGame = new Game();
+    testGame.gameBoard.spaces[0].occupy(testGame.playerO.player_type);
+    testGame.gameBoard.spaces[4].occupy(testGame.playerO.player_type);
+    testGame.gameBoard.spaces[8].occupy(testGame.playerO.player_type);
+    expect(testGame.winCheck()).to.eql(true);
+  });
+
+  it("will return a win for playerO if win by diagonal to upper right", function() {
+    var testGame = new Game();
+    testGame.gameBoard.spaces[2].occupy(testGame.playerO.player_type);
+    testGame.gameBoard.spaces[4].occupy(testGame.playerO.player_type);
+    testGame.gameBoard.spaces[6].occupy(testGame.playerO.player_type);
+    expect(testGame.winCheck()).to.eql(true);
+  });
+
+  it("will not return a win for playerO if diagonal to upper right is incomplete", function() {
+    var testGame = new Game();
+    testGame.gameBoard.spaces[2].occupy(testGame.playerO.player_type);
+    testGame.gameBoard.spaces[4].occupy(testGame.playerX.player_type);
+    testGame.gameBoard.spaces[6].occupy(testGame.playerO.player_type);
+    expect(testGame.winCheck()).to.eql(false);
+  });
+
+  it("will not return a win for playerO if one in diagonal to upper right is not occupied", function() {
+    var testGame = new Game();
+    testGame.gameBoard.spaces[2].occupy(testGame.playerO.player_type);
+    testGame.gameBoard.spaces[6].occupy(testGame.playerO.player_type);
+    expect(testGame.winCheck()).to.eql(false);
+  });
+
 
 
 });

@@ -81,5 +81,39 @@ Game.prototype.mark = function(whichSpace){
     var markType = "o";
   }
   whichSpace.occupy(markType);
+}
 
+Game.prototype.winCheck = function(){
+  var i = 0;
+  var win = false;
+  // Check horizontal win condition
+  do {
+     if(this.gameBoard.spaces[i].occupiedBy === this.gameBoard.spaces[i+1].occupiedBy && this.gameBoard.spaces[i+1].occupiedBy === this.gameBoard.spaces[i+2].occupiedBy && this.gameBoard.spaces[i].occupiedBy !== null){
+       win = true;
+       return win;
+     }else{
+       i += 3;
+     }
+  } while (i < 9);
+  // check vertical win condition
+
+  var j = 0;
+  do {
+     if(this.gameBoard.spaces[j].occupiedBy === this.gameBoard.spaces[j+3].occupiedBy && this.gameBoard.spaces[j+3].occupiedBy === this.gameBoard.spaces[j+6].occupiedBy && this.gameBoard.spaces[j].occupiedBy !== null){
+       win = true;
+       return win;
+     }else{
+       j += 1;
+     }
+  } while (j < 3);
+
+  if(this.gameBoard.spaces[0].occupiedBy === this.gameBoard.spaces[4].occupiedBy && this.gameBoard.spaces[4].occupiedBy === this.gameBoard.spaces[8].occupiedBy && this.gameBoard.spaces[0].occupiedBy !== null){
+    win = true;
+    return win;
+  }
+  if(this.gameBoard.spaces[2].occupiedBy === this.gameBoard.spaces[4].occupiedBy && this.gameBoard.spaces[4].occupiedBy === this.gameBoard.spaces[6].occupiedBy && this.gameBoard.spaces[2].occupiedBy !== null){
+    win = true;
+    return win;
+  }
+return win;
 }
