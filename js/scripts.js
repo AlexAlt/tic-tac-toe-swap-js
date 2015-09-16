@@ -13,6 +13,7 @@ function Player(name, player_type) {
 function Space(coordinates) {
   this.occupiedBy = null;
   this.coordinates = coordinates;
+  // coordinates is non-functional except for specs at the moment
 }
 
 Space.prototype.occupy = function(markedType) {

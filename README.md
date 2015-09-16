@@ -9,7 +9,7 @@
 The app creates a Player-, Space-, Board- and Game-class.  
 The Player-class contains the player_type property, x or o.
 
-The Space-class contains the occupiedBy attribute, which is set when Player clicks on a space to the current player_type. Also, it contains the coordinates of the space.  
+The Space-class contains the occupiedBy attribute, which is set when Player clicks on a space to the current player_type. Also, it contains the coordinates of the space, which as of now have no functionality attached.  
 
 The Board-class contains a spaces-array of the 9 spaces making up the game-board.  
 
