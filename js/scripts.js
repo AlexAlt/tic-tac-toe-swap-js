@@ -18,7 +18,7 @@ function Space(coordinates) {
 Space.prototype.occupy = function(markedType) {
   if (this.occupiedBy === null){
     this.occupiedBy = markedType;
-  } 
+  }
 }
 
 
@@ -48,4 +48,38 @@ Board.prototype.populate = function(){
   this.spaces.push(Space7);
   var Space8 = new Space([2,2]);
   this.spaces.push(Space8);
+}
+
+// ###############################################
+// ###############__ Game-Class__################
+// ###############################################
+function Game() {
+  this.gameBoard = new Board();
+  this.gameBoard.populate();
+  this.playerX = new Player("playerX", "x");
+  this.playerO = new Player("playerO", "o");
+  this.turnCounter = 1;
+}
+
+
+Game.prototype.gameAction = function(whichSpace){
+  var whichSpace = whichSpace;
+  this.mark(whichSpace);
+  this.changeTurn();
+}
+
+Game.prototype.changeTurn = function(){
+  this.turnCounter = this.turnCounter * -1;
+  return this.turnCounter;
+}
+
+Game.prototype.mark = function(whichSpace){
+  var markType = "";
+  if (this.turnCounter === 1) {
+    var markType = "x";
+  } else {
+    var markType = "o";
+  }
+  whichSpace.occupy(markType);
+
 }

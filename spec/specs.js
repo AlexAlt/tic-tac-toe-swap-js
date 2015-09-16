@@ -71,6 +71,43 @@ describe("#board", function() {
       testBoard.spaces[5].occupy(testPlayer2.player_type);
       expect(testBoard.spaces[5].occupiedBy).to.eql("x");
   });
+});
+
+
+// ###############################################
+// ###############__ Game-Class__#################
+// ###############################################
+describe("#game", function() {
+  it("will return the initial turn of player x", function() {
+    var testGame = new Game();
+    expect(testGame.turnCounter).to.eql(1);
+  });
+
+  it("will return the turn of the second round as the one of player o", function() {
+    var testGame = new Game();
+    testGame.changeTurn();
+    expect(testGame.turnCounter).to.eql(-1);
+  });
+
+  it("will mark a space on first turn for playerX", function() {
+    var testGame = new Game();
+    testGame.mark(testGame.gameBoard.spaces[0])
+    expect(testGame.gameBoard.spaces[0].occupiedBy).to.eql("x");
+  });
+
+  it("will mark a space on second turn for playerO", function() {
+    var testGame = new Game();
+    testGame.changeTurn();
+    testGame.mark(testGame.gameBoard.spaces[0]);
+    expect(testGame.gameBoard.spaces[0].occupiedBy).to.eql("o");
+  });
+
+  it("will call an action on a space, changing turn, marking space", function() {
+    var testGame = new Game();
+    testGame.gameAction(testGame.gameBoard.spaces[5]);
+    expect(testGame.gameBoard.spaces[5].occupiedBy).to.eql("x");
+    expect(testGame.turnCounter).to.equal(-1);
+  });
 
 
 
