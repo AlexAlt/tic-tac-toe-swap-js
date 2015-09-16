@@ -35,6 +35,11 @@
   border: 2px solid #E1E1E1;
 }
 
+.header{
+  text-align: center;
+  font-size: 4rem;
+}
+
 #playerX{
   float:left;
   width:25%;
@@ -46,8 +51,7 @@
   width:49%;
   height:100%;
   background-color:lightgrey;
-  text-align: center;
-  font-size: 3rem;
+
 }
 
 #playerO{
