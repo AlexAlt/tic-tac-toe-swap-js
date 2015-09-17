@@ -1,6 +1,6 @@
 # Tic Tac Toe
 
-##### Web app to play Tic-Tac-Toe, latest revision 15 September 2015
+##### Web app to play Tic-Tac-Toe, latest revision 17 September 2015
 
 #### By **Christoph Pirringer, Clayton Easterbrooks, Alex ALtieri, Lindsay Culver**
 
