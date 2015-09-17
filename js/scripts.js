@@ -62,6 +62,9 @@ function Game() {
   this.turnCounter = 1;
 }
 
+Game.prototype.computerGame = function() {
+  this.playerO = new Player("computer", "o");
+}
 
 Game.prototype.gameAction = function(whichSpace){
   var whichSpace = whichSpace;
