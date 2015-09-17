@@ -69,6 +69,20 @@ Game.prototype.computerGame = function() {
   this.playerX = new Player("playerX", "x");
   this.playerO = new Player("computer", "o");
   this.turnCounter = 1;
+  this.clickedSpaces = [];
+}
+
+Game.prototype.randomSpace= function(){
+  var randomNumber = Math.floor(Math.random()* 8);
+  if (this.clickedSpaces.indexOf(randomNumber) < 0) {
+    var space_id = randomNumber;
+    this.gameAction(this.gameBoard.spaces[space_id]);
+    this.clickedSpaces.push(space_id);
+    return space_id;
+  }
+   else {
+     this.randomSpace();
+   }
 }
 
 Game.prototype.gameAction = function(whichSpace){

@@ -48,28 +48,24 @@ $(document).ready(function(){
     game.computerGame();
 
     $(".space").each(function() {
-        var clickedSpaces = [];
 
       $(this).click(function(event){
         var space_id = this.id;
         game.gameAction(game.gameBoard.spaces[space_id]);
         $(this).append(game.gameBoard.spaces[space_id].occupiedBy);
         $(this).off();
-        clickedSpaces.push(this.id);
-        
+        game.clickedSpaces.push(parseInt(this.id));
+
+
 
         if (game.turnCounter === -1) {
-          var randomNumber = Math.floor(Math.random()* 8);
-          do {
-            space_id = randomNumber;
-            game.gameAction(game.gameBoard.spaces[space_id]);
+          var space_id = game.randomSpace();
+          if (space_id ){
             $("#" + space_id.toString()).append("<img src= 'css/images/ghost2.jpg' style= 'height: 85px; width: 85px;'>");
             $("#" + space_id.toString()).off();
-            clickedSpaces.push(space_id);
-          }while (clickedSpaces.indexOf(randomNumber) < 0);
-
+            console.log(game.clickedSpaces);
+          }
         }
-
 
         if (game.winCheck() === true) {
           $("#game_status").text("You won " + Player + "!");
@@ -87,7 +83,6 @@ $(document).ready(function(){
           $("#playerX").text("X's turn!");
           $("#playerO").text("");
         } else {}
-
 
 
         });

@@ -2,7 +2,7 @@
 
 ##### Web app to play Tic-Tac-Toe, latest revision 15 September 2015
 
-#### By **Christoph Pirringer & Clayton Easterbrooks**
+#### By **Christoph Pirringer, Clayton Easterbrooks, Alex ALtieri, Lindsay Culver**
 
 ## Description
 
@@ -35,7 +35,7 @@ This app uses JavaScript and jQuery. Mocha and Chai were used for testing.
 
 
 
-Copyright (c) 2015 **Cristoph Pirringer & Clayton Easterbrooks**
+Copyright (c) 2015 **Cristoph Pirringer, Clayton Easterbrooks, Alex Altieri, Lindsay Culver**
 
 This software is licensed under the MIT license.
 
