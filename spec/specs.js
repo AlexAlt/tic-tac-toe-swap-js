@@ -169,6 +169,10 @@ describe("#game", function() {
     expect(testGame.winCheck()).to.eql(false);
   });
 
-
+ it("will allow a user to play against the computer", function() {
+   var testGame =  new Game();
+   testGame.computerGame();
+   expect(testGame.playerO.name()).to.equal("computer");
+ });
 
 });
