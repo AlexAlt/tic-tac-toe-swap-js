@@ -44,15 +44,32 @@ $(document).ready(function(){
     $(".container").fadeIn(1400);
     $(".btn").hide();
 
-    var game = new Game().computerGame();
+    var game = new Game();
+    game.computerGame();
 
     $(".space").each(function() {
+        var clickedSpaces = [];
+
       $(this).click(function(event){
         var space_id = this.id;
         game.gameAction(game.gameBoard.spaces[space_id]);
         $(this).append(game.gameBoard.spaces[space_id].occupiedBy);
-        $(this).off()
-        $("#info_bar").append("Player:" + game.turnCounter + ", Move: " + game.gameBoard.spaces[space_id].occupiedBy + game.winCheck())
+        $(this).off();
+        clickedSpaces.push(this.id);
+        $("#info_bar").append("Player:" + game.turnCounter + ", Move: " + game.gameBoard.spaces[space_id].occupiedBy + game.winCheck());
+
+        if (game.turnCounter === -1) {
+          var randomNumber = Math.floor(Math.random()* 8);
+          do {
+            space_id = randomNumber;
+            game.gameAction(game.gameBoard.spaces[space_id]);
+            $("#" + space_id.toString()).append(game.gameBoard.spaces[space_id].occupiedBy);
+            $("#" + space_id.toString()).off();
+            clickedSpaces.push(space_id);
+          }while (clickedSpaces.indexOf(randomNumber) < 0);
+
+        }
+
 
         if (game.winCheck() === true) {
           $("#game_status").text("You won " + Player + "!");
