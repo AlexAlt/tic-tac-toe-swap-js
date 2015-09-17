@@ -116,7 +116,7 @@ Game.prototype.winCheck = function(){
      }
   } while (j < 3);
 
-  if(this.gameBoard.spaces[0].occupiedBy === this.gameBoard.spaces[4].occupiedBy && this.gameBoard.spaces[4].occupiedBy === this.gameBoard.spaces[x].occupiedBy && this.gameBoard.spaces[0].occupiedBy !== null){
+  if(this.gameBoard.spaces[0].occupiedBy === this.gameBoard.spaces[4].occupiedBy && this.gameBoard.spaces[4].occupiedBy === this.gameBoard.spaces[8].occupiedBy && this.gameBoard.spaces[0].occupiedBy !== null){
     win = true;
     return win;
   }

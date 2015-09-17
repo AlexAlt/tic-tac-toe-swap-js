@@ -56,14 +56,14 @@ $(document).ready(function(){
         $(this).append(game.gameBoard.spaces[space_id].occupiedBy);
         $(this).off();
         clickedSpaces.push(this.id);
-        $("#info_bar").append("Player:" + game.turnCounter + ", Move: " + game.gameBoard.spaces[space_id].occupiedBy + game.winCheck());
+        
 
         if (game.turnCounter === -1) {
           var randomNumber = Math.floor(Math.random()* 8);
           do {
             space_id = randomNumber;
             game.gameAction(game.gameBoard.spaces[space_id]);
-            $("#" + space_id.toString()).append(game.gameBoard.spaces[space_id].occupiedBy);
+            $("#" + space_id.toString()).append("<img src= 'css/images/ghost2.jpg' style= 'height: 85px; width: 85px;'>");
             $("#" + space_id.toString()).off();
             clickedSpaces.push(space_id);
           }while (clickedSpaces.indexOf(randomNumber) < 0);

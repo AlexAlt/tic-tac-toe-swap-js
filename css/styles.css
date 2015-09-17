@@ -17,7 +17,7 @@
   width:32%;
   height:99%;
   float:left;
-  border: 2px solid #E1E1E1;
+  border: 2px solid black;
   border-radius: 5px;
   margin:auto;
   text-align:center;
@@ -32,7 +32,6 @@
 
 #header{
   height:75px;
-  border: 2px solid #E1E1E1;
 }
 
 .header{
@@ -44,13 +43,14 @@
   float:left;
   width:25%;
   height:100%;
-  background-color:grey !important;
+  background-color: black !important;
 }
+
 #game_status{
   float:left;
   width:49%;
   height:100%;
-  background-color:lightgrey;
+  background-color: black;
 
 }
 
@@ -58,9 +58,14 @@
   float:right:
   width:25%;
   height:100%;
-  background-color:grey !important;
+  background-color: black !important;
 }
 
 body {
   background: url("images/halloween.jpg") center top no-repeat;
+  color: orange;
+}
+
+.btn {
+  margin: 200px auto;
 }
