@@ -60,10 +60,10 @@ $(document).ready(function(){
 
         if (game.turnCounter === -1) {
           var space_id = game.randomSpace();
-          if (space_id ){
+          debugger;
+          if (space_id || space_id >= 0){
             $("#" + space_id.toString()).append("<img src= 'css/images/ghost2.jpg' style= 'height: 85px; width: 85px;'>");
             $("#" + space_id.toString()).off();
-            console.log(game.clickedSpaces);
           }
         }
 

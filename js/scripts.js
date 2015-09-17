@@ -81,7 +81,7 @@ Game.prototype.randomSpace= function(){
     return space_id;
   }
    else {
-     this.randomSpace();
+     return this.randomSpace();
    }
 }
 
